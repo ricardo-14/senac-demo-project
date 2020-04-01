@@ -1,6 +1,7 @@
 package br.edu.sc.senac.demo.demoproject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class ClientService {
 	
-	private List<ClientDTO> clients = new ArrayList<>();
+	private static ClientDTO[] DEFAULT_CLIENTS = new ClientDTO[] {
+			new ClientDTO("Gabriel", "Gerente", "02/09/2003"),
+			new ClientDTO("Macalister","Colaborador", "21/10/2003"),
+			new ClientDTO("Marcelo","Colaborador", "21/10/1970") };
+
+	private ClientController clientController;
+
+	ClientService(ClientController clientController) {
+		this.clientController = clientController;
+		Arrays.asList(ClientService.DEFAULT_CLIENTS).forEach(dto -> this.clientController.insertClient(dto));
+	}
+	
+	
+	/*private List<ClientDTO> clients = new ArrayList<>();
 
 	@PostMapping("/add-default")
 	public void addDefault() {
@@ -33,10 +47,14 @@ public class ClientService {
 		
 		client = new ClientDTO("Marcelo","Colaborador", "21/10/1970");
 		clients.add(client);
-	}
+	} */
 	
 	@GetMapping("/list")
 	public List<ClientDTO> list() {
+		return this.clientController.getAllClients();
+	}
+}
+	/*public List<ClientDTO> list() {
 		return this.clients;
 	}
 
@@ -80,3 +98,4 @@ public Long addClient(@RequestBody ClientDTO client) {
 	return new ResponseEntity<>(oldClient, HttpStatus.OK);
 	}
 }
+*/
