@@ -10,24 +10,24 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class ClientController {
 
-	private List<ClientDTO> clients = new ArrayList<>();
+	private List<ContaDTO> clients = new ArrayList<>();
 
-	List<ClientDTO> getAllClients() {
+	List<ContaDTO> getAllClients() {
 		return this.clients;
 	}
 
-	Long insertClient(ClientDTO client) {
+	Long insertClient(ContaDTO client) {
 		clients.add(client);
 		Long id = Long.valueOf(clients.size() - 1);
 		return id;
 	}
 
-	ResponseEntity <ClientDTO> getClient(Long id) {
+	ResponseEntity <ContaDTO> getClient(Long id) {
 		if (id >= clients.size() || id < 0) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		int index = id.intValue();
-		ClientDTO client = clients.get(index);
+		ContaDTO client = clients.get(index);
 		return new ResponseEntity<>(client, HttpStatus.OK);
 	}
 	
