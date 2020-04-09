@@ -1,13 +1,13 @@
 package br.edu.sc.senac.demo.demoproject;
 
-public class ContaDTO {
-	public static final ContaDTO NULL_VALUE = new ContaDTO("", "", "");
+public class ClientDTO {
+	public static final ClientDTO NULL_VALUE = new ClientDTO("", "", "");
 
 	private final String name;
 	private final String cargo;
 	private final String data;
 	
-	public ContaDTO(final String name, final String cargo, final String data) {
+	public ClientDTO(final String name, final String cargo, final String data) {
 		this.name = name;
 		this.cargo = cargo;
 		this.data = data;
