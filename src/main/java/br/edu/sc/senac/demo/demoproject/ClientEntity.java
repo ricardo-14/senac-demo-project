@@ -14,28 +14,27 @@ final class ClientEntity implements Serializable {
 
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
-
 		private Long clientId;
 
 		private String name;
 
 		private String cargo;
 
-		private String data;
+		private String dataNascimento;
 
 		protected ClientEntity() {
 		}
 
-		public ClientEntity(final String name, final String cargo, final String data) {
+		public ClientEntity(final String name, final String cargo, final String dataNascimento) {
 			this.name = name;
 			this.cargo = cargo;
-			this.data = data;
+			this.dataNascimento = dataNascimento;
 		}
 
 		@Override
 		public String toString() {
 			return "ClientEntity [clientId=" + this.clientId + ", name=" + this.name + ", cargo=" + this.cargo
-					+ ", data=" + this.data + "]";
+					+ ", dataNascimento=" + this.dataNascimento + "]";
 		}
 
 		public Long getClientId() {
@@ -62,13 +61,13 @@ final class ClientEntity implements Serializable {
 			}
 		}
 
-		public String getData() {
-			return this.data;
+		public String getdataNascimento() {
+			return this.dataNascimento;
 		}
 
-		public void setData(final String data) {
-			if (data != null) {
-				this.data = data;
+		public void setdataNascimento(final String dataNascimento) {
+			if (dataNascimento != null) {
+				this.dataNascimento = dataNascimento;
 			}
 		}
 

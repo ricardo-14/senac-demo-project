@@ -38,12 +38,15 @@ final class ProductController {
 
 	List<ProductDTO> getAllProducts() {
 		final List<ProductDTO> products = new ArrayList<>();
-		this.productRepository.findAll().forEach(productEntity -> products.add(ProductController.toDTO(productEntity)));
-		/*
-		 * final Iterable<ProductEntity> entities = this.productRepository.findAll();
-		 * for (final ProductEntity productEntity : entities) {
-		 * products.add(ProductController.toDTO(productEntity)); }
-		 */
+		
+//		this.productRepository.findAll().forEach(productEntity -> products.add(ProductController.toDTO(productEntity)));
+		
+		final Iterable<ProductEntity> entities = this.productRepository.findAll();
+		for (final ProductEntity productEntity : entities) {
+			ProductDTO productDTO = ProductController.toDTO(productEntity);
+			products.add(productDTO);
+		}
+		 
 		/*
 		 * for (final Iterator<ProductEntity> iterator = entities.iterator();
 		 * iterator.hasNext();) { final ProductEntity productEntity = iterator.next();
@@ -55,7 +58,8 @@ final class ProductController {
 	ProductDTO getProduct(final Long id) {
 		final Optional<ProductEntity> optionalProduct = this.productRepository.findById(id);
 		if (optionalProduct.isPresent()) {
-			return ProductController.toDTO(optionalProduct.get());
+			ProductEntity productEntity = optionalProduct.get();
+			return ProductController.toDTO(productEntity);
 		}
 		return ProductDTO.NULL_VALUE;
 	}
