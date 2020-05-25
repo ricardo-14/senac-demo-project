@@ -27,11 +27,11 @@ public class ClientService {
 	}
 
 	@PostMapping("/add-default")
-	public void addDefault() {
-		addClient("Marcelo", "Gerente", "21/10/1970");
-		addClient("Gabriel", "Colaborador", "02/09/2003");
-		addClient("Macalister", "Colaborador", "21/10/2003");
-	}
+//	public void addDefault() {
+//		addClient("Marcelo", "Gerente", "21/10/1970");
+//		addClient("Gabriel", "Colaborador", "02/09/2003");
+//		addClient("Macalister", "Colaborador", "21/10/2003");
+//	}
 
 	@GetMapping("/list")
 	public List<ClientDTO> list() {
@@ -55,18 +55,17 @@ public class ClientService {
 		}
 		return new ResponseEntity<>(removedClient, HttpStatus.OK);
 	}
-
-	@PostMapping("/add")
-	public Long addClient(@RequestParam("nome") String nome, @RequestParam("cargo") String cargo,
-			@RequestParam("data") String data) {
-		ClientDTO client = new ClientDTO(nome, cargo, data);
-		return this.clientController.addClient(client);
-	}
-
-	@PostMapping("/addpayload")
-	public Long addClient(@RequestBody ClientDTO client) {
-		return this.clientController.addClient(client);
-	}
+//
+//	@PostMapping("/add")
+//	public Long addClient(@RequestParam("nome") String nome, @RequestParam("cargo") String cargo,
+//			@RequestParam("data") String data) {
+//		ClientDTO client = new ClientDTO(nome, cargo, data);
+//		return this.clientController.addClient(client);
+//	}
+//	@PostMapping("/addpayload")
+//	public Long addClient(@RequestBody ClientDTO client) {
+//		return this.clientController.addClient(client);
+//	}
 
 	@PutMapping("/{id}")
 	public ResponseEntity<ClientDTO> uptadeClient(@PathVariable Long id, @RequestBody ClientDTO updatedClient) {
