@@ -1,0 +1,46 @@
+<h2>Customers</h2>
+
+<!--table class="table" border=1 cellspacing=0 cellpadding=2>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Data Nascimento</th>
+            <th>E-mail</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let customer of customers">
+            <td>{{customer.nome}}</td>
+            <td>{{customer.data}}</td>
+            <td>{{customer.email}}</td>
+        </tr>
+        <tr>
+            <td>Gabriel</td>
+            <td>14/11/2001</td>
+            <td>gabriel@email.com</td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngFor="let customer of customers"> 
+    <h4>{{ customer.nome }}</h4>
+    <h5>{{ customer.data }}</h5>
+    <h5>{{ customer.email }}</h5>
+</div>
+
+<div *ngFor="let customer of customers"> 
+    <h3>Data</h3>
+    <h5>{{customer.data}}</h5>
+</div -->
+
+<div *ngFor="let customer of customers">
+    <h3>
+        <a [title]="customer.nome + ' details'">
+            {{ customer.nome }} 
+        </a>
+    </h3>
+    <p>
+        E-mail: {{ customer.email }}
+    </p>
+</div>
+
