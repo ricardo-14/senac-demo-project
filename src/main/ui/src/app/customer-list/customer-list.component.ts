@@ -17,6 +17,11 @@ export class CustomerListComponent implements OnInit {
   nome: "Gabriel",
   data: "02/09/03",
   email: "gabriel@email.com"
+},
+{
+  nome: "Lucas",
+  data: "02/05/03",
+  email: null
 }
 ];
 

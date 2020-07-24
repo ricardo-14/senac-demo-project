@@ -22,6 +22,7 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
     HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: ProductListComponent },
+      { path: 'customers', component: CustomerListComponent },
       { path: 'products/:productId', component: ProductDetailsComponent },
     ])
   ],

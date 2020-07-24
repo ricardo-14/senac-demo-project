@@ -39,7 +39,7 @@
             {{ customer.nome }} 
         </a>
     </h3>
-    <p>
+    <p *ngIf="customer.email">
         E-mail: {{ customer.email }}
     </p>
 </div>

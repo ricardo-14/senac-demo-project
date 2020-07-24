@@ -1,4 +1,17 @@
+nav {
+    display: flex;
+    margin-left: auto;
+    padding-right: 16px;
+  }
 
+a {
+    padding-right: 16px;
+}
+
+h3 {
+    color: white;
+    margin: 0;
+  }
 
 /*
 Copyright Google LLC. All Rights Reserved.
