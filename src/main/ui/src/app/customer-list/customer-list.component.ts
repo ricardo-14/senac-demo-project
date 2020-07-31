@@ -10,16 +10,14 @@ export class CustomerListComponent implements OnInit {
 
   private customers: Customer[];
 
-  private customerName: String;
+  private newCustomer: Customer;
+
+  //private customerName: String;
 
   constructor() { }
 
   ngOnInit() {
-    let customerA = new Customer();
-    
-
     this.customers = [
-      customerA,
       {
         nome: "Ricardo",
         data: "14/11/01",
@@ -36,15 +34,18 @@ export class CustomerListComponent implements OnInit {
         email: null
       }
     ];
+    this.newCustomer = new Customer();
   }
 
-  onSubmit(customerForm: NgForm, customerName:String, data:String, email:String) {
+  onSubmit(customerForm: NgForm) {
     if (customerForm.valid) {
-      let newCustomer = new Customer();
-      newCustomer.nome = customerName;
-      newCustomer.data = data;
-      newCustomer.email = email;
-      this.customers.push(newCustomer);
+      //let newCustomer = new Customer();
+      //newCustomer.nome = customerName;
+      //newCustomer.data = data;
+      //newCustomer.email = email;
+      this.customers.push(this.newCustomer);
+      this.newCustomer = new Customer(); 
+      
     }
   }
 }

@@ -33,27 +33,27 @@
     <h5>{{customer.data}}</h5>
 </div -->
 
-<form #customerForm="ngForm" (ngSubmit)="onSubmit(customerForm, customerName.value, customerBornDate.value, customerEmail.value)">
+<form #customerForm="ngForm" (ngSubmit)="onSubmit(customerForm)">
     <div>
         <label for="customerName"> Nome </label>
-        <input #customerName="ngModel" ngModel name="customerName" required placeholder="Seu Nome"/>
+        <input #customerName="ngModel" [(ngModel)]="newCustomer.nome" name="customerName" required placeholder="Seu Nome"/>
     </div>
     <div>
         <label for="customerBornDate"> Data de Nascimento </label>
-        <input #customerBornDate="ngModel" ngModel name="customerBornDate" type="date" required placeholder="Data Nascimento"/>
+        <input #customerBornDate="ngModel" [(ngModel)]="newCustomer.bornDate" name="customerBornDate" type="date" required placeholder="Data Nascimento"/>
     </div>
     <div>
         <label for="customerEmail"> E-mail </label>
-        <input #customerEmail="ngModel" ngModel name="customerEmail" required placeholder="Seu E-mail"/>
+        <input #customerEmail="ngModel" [(ngModel)]="newCustomer.email" name="customerEmail" type="email" required placeholder="Seu E-mail"/>
     </div>
     <button type="submit" [disabled]="!customerForm.valid">Submit</button>
 </form>
 
-<p>
+<!--p>
     {{ customerName.value }}
     {{ customerBornDate.value }}
     {{ customerEmail.value }}
-</p>
+</p-->
 
 <div *ngFor="let customer of customers">
     <h3>
