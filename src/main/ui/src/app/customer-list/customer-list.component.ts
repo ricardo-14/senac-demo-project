@@ -17,35 +17,14 @@ export class CustomerListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.customers = [
-      {
-        nome: "Ricardo",
-        data: "14/11/01",
-        email: "ricardo@email.com"
-      },
-      {
-        nome: "Gabriel",
-        data: "02/09/03",
-        email: "gabriel@email.com"
-      },
-      {
-        nome: "Lucas",
-        data: "02/05/03",
-        email: null
-      }
-    ];
+    this.customers = customerCollection;
     this.newCustomer = new Customer();
   }
 
   onSubmit(customerForm: NgForm) {
     if (customerForm.valid) {
-      //let newCustomer = new Customer();
-      //newCustomer.nome = customerName;
-      //newCustomer.data = data;
-      //newCustomer.email = email;
       this.customers.push(this.newCustomer);
       this.newCustomer = new Customer(); 
-      
     }
   }
 }
@@ -55,3 +34,21 @@ export class Customer {
   data: String;
   email: String
 }
+
+export const customerCollection =[
+  {
+    nome: "Ricardo",
+    data: "14/11/01",
+    email: "ricardo@email.com"
+  },
+  {
+    nome: "Gabriel",
+    data: "02/09/03",
+    email: "gabriel@email.com"
+  },
+  {
+    nome: "Lucas",
+    data: "02/05/03",
+    email: null
+  }
+];

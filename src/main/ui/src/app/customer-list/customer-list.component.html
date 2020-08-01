@@ -55,9 +55,9 @@
     {{ customerEmail.value }}
 </p-->
 
-<div *ngFor="let customer of customers">
+<div *ngFor="let customer of customers; let id=index">
     <h3>
-        <a [title]="customer.nome + ' details'">
+        <a [title]="customer.nome + ' details'" [routerLink]="['/customers', id]">
             {{ customer.nome }} 
         </a>
     </h3>
